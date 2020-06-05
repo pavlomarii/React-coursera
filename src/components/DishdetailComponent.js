@@ -13,7 +13,8 @@ class Dishdetail extends Component {
 				return (
 					<li key={comment.id}>
 						<p>{comment.comment}</p>
-						<p>-- {comment.author},&nbsp;{comment.date}</p>
+						<p>-- {comment.author},&nbsp;{new Intl.DateTimeFormat('en-US',
+						{year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
 					</li>
 				);
 			}); 
@@ -59,9 +60,11 @@ class Dishdetail extends Component {
 			const dishItem = this.renderDish(dish);
 			const dishComments = this.renderComments(dish.comments);
 			return (
-				<div className="row">
-					{dishItem}
-					{dishComments}
+				<div className="container">
+					<div className="row">
+						{dishItem}
+						{dishComments}
+					</div>
 				</div>
 			);
 		}
