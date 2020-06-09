@@ -1,10 +1,14 @@
 # My solutions to the course on Coursera.
 https://www.coursera.org/learn/front-end-react/
 
-You can see my sertificate below:
+My sertificate:
 https://coursera.org/share/ae03f69e6f43e10d1ec6f9a8978a1257
 
+##
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+##
 
 ## Available Scripts
 
