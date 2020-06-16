@@ -4,6 +4,7 @@ import { Card, CardImg, CardText, CardBody,
 	ModalHeader, Row, Label, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import {Control, LocalForm, Errors} from 'react-redux-form';
+import { Loading } from './LoadingComponent';
 
 function RenderComments({comments, addComment, dishId}) {
 	if(comments != null){
@@ -47,6 +48,24 @@ function RenderDish({dish}){
 
 const Dishdetail = (props) => {
 	const dish = props.dish;
+	if(props.isLoading) {
+		return(
+			<div className='container'>
+				<div className='row'>
+					<Loading />
+				</div>
+			</div>
+		);
+	}
+	else if (props.errMess) {
+		return(
+			<div className='container'>
+				<div className='row'>
+					<h4>{props.errMess}</h4>
+				</div>
+			</div>
+		);
+	}
 	if(dish === null || dish === undefined){
 		return (<div></div>);
 	}
@@ -66,9 +85,8 @@ const Dishdetail = (props) => {
         <div className="row">
             <RenderDish dish={props.dish} />
 			<RenderComments comments={props.comments}
-        addComment={props.addComment}
-        dishId={props.dish.id}
-      />
+				addComment={props.addComment}
+				dishId={props.dish.id} />
         </div>
       </div>
     );
